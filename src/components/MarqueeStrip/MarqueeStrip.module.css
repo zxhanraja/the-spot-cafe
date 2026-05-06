@@ -1,0 +1,36 @@
+.marquee {
+  width: 100vw;
+  height: 44px;
+  background-color: var(--col-primary);
+  border-top: 1px solid #a04818;
+  border-bottom: 1px solid #a04818;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  position: relative;
+  z-index: 10;
+}
+
+.track {
+  display: flex;
+  white-space: nowrap;
+  
+}
+
+.item {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  font-family: var(--font-display);
+  font-size: 18px;
+  letter-spacing: 3px;
+  color: var(--col-text);
+  padding: 0 40px;
+}
+
+.dot {
+  width: 5px;
+  height: 5px;
+  background-color: var(--col-gold);
+  border-radius: 50%;
+}

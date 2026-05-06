@@ -1,0 +1,186 @@
+.events {
+  padding: 100px 0;
+  background-color: var(--col-bg);
+}
+
+.container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 5vw;
+}
+
+.header {
+  margin-bottom: 48px;
+}
+
+.title {
+  font-family: var(--font-display);
+  font-size: 52px;
+  color: var(--col-text);
+  line-height: 1;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 3fr 2fr;
+  gap: 32px;
+}
+
+.mainCard {
+  position: relative;
+  background-color: var(--col-primary);
+  padding: 40px;
+  border-radius: 0;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  min-height: 420px;
+  cursor: pointer;
+}
+
+.cardBg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+}
+
+.bgImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.8s cubic-bezier(0.33, 1, 0.68, 1);
+}
+
+.bgOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to top, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.3) 100%);
+}
+
+.mainCard:hover .bgImage {
+  transform: scale(1.05);
+}
+
+.ghostText {
+  position: absolute;
+  bottom: -20px;
+  right: -20px;
+  font-family: var(--font-display);
+  font-size: 140px;
+  color: rgba(0, 0, 0, 0.1);
+  pointer-events: none;
+  z-index: 1;
+  transform-origin: bottom right;
+}
+
+.badge {
+  position: absolute;
+  top: 32px;
+  left: 32px;
+  font-family: var(--font-body);
+  font-size: 11px;
+  font-weight: 700;
+  background-color: var(--col-gold);
+  color: var(--col-bg2);
+  padding: 4px 12px;
+}
+
+.eventTitle {
+  font-family: var(--font-display);
+  font-size: 38px;
+  color: var(--col-text);
+  margin-bottom: 12px;
+  z-index: 2;
+}
+
+.details {
+  font-family: var(--font-copy);
+  font-size: 12px;
+  font-weight: 300;
+  color: rgba(240, 230, 211, 0.8);
+  margin-bottom: 24px;
+  z-index: 2;
+}
+
+.bookBtn {
+  width: fit-content;
+  font-family: var(--font-body);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  color: var(--col-text);
+  border-bottom: 1px solid var(--col-text);
+  padding-bottom: 4px;
+  z-index: 2;
+  transition: opacity 0.3s ease;
+}
+
+.bookBtn:hover {
+  opacity: 0.7;
+}
+
+.sideCards {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.sideCard {
+  background-color: var(--col-bg2);
+  border: 1px solid var(--col-border);
+  padding: 40px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.accentBorder {
+  border-left: 2px solid var(--col-gold);
+}
+
+.sideTitle {
+  font-family: var(--font-body);
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--col-text);
+  letter-spacing: 2px;
+  margin-bottom: 12px;
+}
+
+.sideSub {
+  font-family: var(--font-copy);
+  font-size: 11px;
+  color: var(--col-muted);
+  line-height: 1.6;
+}
+
+@media (max-width: 1024px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .mainCard {
+    min-height: 300px;
+    padding: 24px;
+  }
+  .badge { top: 20px; left: 20px; }
+  .eventTitle {
+    font-size: 28px;
+  }
+  .ghostText {
+    font-size: 80px;
+  }
+  .title {
+    font-size: 42px;
+  }
+}

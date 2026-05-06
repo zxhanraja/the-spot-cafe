@@ -1,0 +1,21 @@
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
+body {
+  font-family: var(--font-copy);
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--col-text);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-display);
+  text-transform: uppercase;
+  margin: 0;
+}
+
+nav, button, label {
+  font-family: var(--font-body);
+  text-transform: uppercase;
+}

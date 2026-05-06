@@ -1,0 +1,39 @@
+.container {
+  position: absolute;
+  top: 50%;
+  right: -5%;
+  transform: translateY(-50%);
+  width: 500px;
+  height: 500px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.ring1, .ring2, .ring3 {
+  position: absolute;
+  border-radius: 50%;
+  border: 1px solid var(--col-primary);
+}
+
+.ring1 {
+  width: 340px;
+  height: 340px;
+  opacity: 0.15;
+}
+
+.ring2 {
+  width: 240px;
+  height: 240px;
+  border-color: var(--col-gold);
+  opacity: 0.10;
+}
+
+.ring3 {
+  width: 140px;
+  height: 140px;
+  background-color: #1a0c05;
+  opacity: 0.30;
+}

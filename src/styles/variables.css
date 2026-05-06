@@ -1,0 +1,16 @@
+:root {
+  --col-bg:        #1a1a1a;   /* charcoal gray */
+  --col-bg2:       #121212;   /* deeper gray */
+  --col-bg3:       #0d0d0d;   /* darkest gray */
+  --col-primary:   #c02626;   /* vibrant red */
+  --col-gold:      #e5e5e5;   /* light silver/white accent */
+  --col-text:      #ffffff;   /* pure white text */
+  --col-muted:     #888888;   /* medium gray */
+  --col-faint:     #444444;   /* dark gray text */
+  --col-border:    #2a2a2a;   /* subtle dark border */
+  --col-border2:   #333333;   /* slightly lighter border */
+
+  --font-display:  'Anton', sans-serif;       /* Bold Hero titles */
+  --font-body:     'Inter', sans-serif;       /* Nav, labels */
+  --font-copy:     'Inter', sans-serif;       /* Body copy */
+}

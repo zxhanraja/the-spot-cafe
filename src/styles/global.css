@@ -1,0 +1,85 @@
+@import './variables.css';
+@import './typography.css';
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  background: var(--col-bg);
+  color: var(--col-text);
+  overflow-x: hidden;
+  width: 100%;
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--col-bg);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--col-border2);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--col-primary);
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  background: none;
+  color: inherit;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul {
+  list-style: none;
+}
+
+.container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 5vw;
+}
+
+section {
+  position: relative;
+  overflow: hidden;
+}
+
+/* Base Utility Classes */
+.text-primary { color: var(--col-primary); }
+.text-gold { color: var(--col-gold); }
+.text-muted { color: var(--col-muted); }
+
+.flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.pt-navbar {
+  padding-top: 80px; /* Standard navbar height offset */
+}
+
+@media (max-width: 768px) {
+  .pt-navbar {
+    padding-top: 70px;
+  }
+}
