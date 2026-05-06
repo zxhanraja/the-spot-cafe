@@ -7,6 +7,7 @@ import styles from './Menu.module.css';
 gsap.registerPlugin(ScrollTrigger);
 
 const categories = [
+  { id: 'beverages', label: 'Beverages', emoji: '☕' },
   { id: 'bites', label: 'Bites', emoji: '🍟' },
   { id: 'mains', label: 'Mains', emoji: '🍔' },
   { id: 'desserts', label: 'Desserts', emoji: '🍫' },
@@ -14,6 +15,13 @@ const categories = [
 ];
 
 const menuItems = {
+  beverages: [
+    { id: 1, name: 'Cold Coffee', price: 189, desc: 'Classic creamy cold coffee with a rich froth.', tag: 'BESTSELLER', image: '/dishes/cold_coffee.webp', details: 'Our signature house blend coffee, chilled and blended with creamy milk and a touch of sweetness. Served ice-cold with a thick, frothy top.' },
+    { id: 2, name: 'Iced Latte', price: 219, desc: 'Double shot of espresso over chilled milk and ice.', tag: 'STRONG', image: '/dishes/iced_latte.webp', details: 'A bold double shot of our premium espresso poured over chilled milk and ice cubes. Perfectly balanced for those who love their coffee cold but strong.' },
+    { id: 3, name: 'KitKat Shake', price: 249, desc: 'Thick chocolate shake blended with KitKat pieces.', tag: 'INDULGENT', image: '/dishes/kitkat_shake.webp', details: 'A decadent milkshake made with premium chocolate ice cream, blended with crunchy KitKat bars and topped with even more chocolate shavings.' },
+    { id: 4, name: 'Virgin Mojito', price: 159, desc: 'Refreshing blend of mint, lime, and soda.', tag: 'REFRESHING', image: '/dishes/virgin_mojito.webp', details: 'A classic thirst-quencher with muddled fresh mint leaves, zesty lime juice, and a splash of sparkling soda. The perfect companion for any meal.' },
+    { id: 5, name: 'Blue Lagoon', price: 169, desc: 'Cool blue citrus mocktail with a tangy twist.', tag: 'VIBRANT', image: '/dishes/blue_lagoon.webp', details: 'A visually stunning mocktail with blue curacao syrup, lemon juice, and sprite. It’s sweet, tangy, and incredibly refreshing.' },
+  ],
   bites: [
     { id: 6, name: 'French Fries', price: 149, desc: 'Crispy golden fries served with house-made dip.', tag: 'SPOT FAV', image: '/dishes/french_fries.webp', details: 'Hand-cut potatoes fried to a perfect golden crisp, lightly seasoned with sea salt and served with our signature garlic aioli.' },
     { id: 7, name: 'Veg Momos', price: 169, desc: 'Steamed dumplings packed with fresh garden veggies.', tag: 'LIGHT', image: '/dishes/veg_momos.webp', details: 'Delicate wrappers filled with finely chopped seasonal vegetables and herbs, steamed to perfection. Served with spicy tomato chutney.' },
@@ -147,13 +155,19 @@ const ItemDetail = ({ item, onClose }) => {
 };
 
 /* ── Main Menu Component ── */
-const Menu = () => {
-  const [activeTab, setActiveTab] = useState('bites');
+const Menu = ({ isHomePage = false }) => {
+  // Use 'bites' for Home Page, 'beverages' for full Menu page
+  const [activeTab, setActiveTab] = useState(isHomePage ? 'bites' : 'beverages');
   const [selectedItem, setSelectedItem] = useState(null);
   const sectionRef = useRef(null);
   const headingRef = useRef(null);
   const gridRef = useRef(null);
   const tabsRef = useRef(null);
+
+  // Filter categories: No beverages on Home Page
+  const displayedCategories = categories
+    .filter(cat => isHomePage ? cat.id !== 'beverages' : true)
+    .map(cat => (isHomePage && cat.id === 'bites') ? { ...cat, label: 'Crunch Bites' } : cat);
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -198,14 +212,14 @@ const Menu = () => {
               EST. 2026
             </div>
             <h2 className={styles.title}>
-              CRAFTED <span className={styles.accent}>BITES</span>
+              {isHomePage ? 'CRUNCH' : 'CRAFTED'} <span className={styles.accent}>BITES</span>
             </h2>
             <p className={styles.subtitle}>Premium global flavours, served fresh daily.</p>
           </div>
 
           {/* Tabs */}
           <div ref={tabsRef} className={styles.tabs}>
-            {categories.map((cat) => (
+            {displayedCategories.map((cat) => (
               <button
                 key={cat.id}
                 onClick={() => handleTabChange(cat.id)}

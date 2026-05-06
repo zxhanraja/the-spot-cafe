@@ -20,7 +20,7 @@ const Home = () => {
       <MarqueeStrip />
       <div className="section-divider" />
       <About />
-      <Menu />
+      <Menu isHomePage={true} />
       <Gallery title={<span>OUR <span className="text-primary">DISHES</span></span>} />
       <Events />
       <Contact />
